@@ -1,0 +1,23 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  p Poorna Chandan Reddy Vavilala is working on pug templates.
+
+  button(type="button" class="btn btn-secondary" onclick="toReduce()") PressMe
+   
+ 
+  div(id="reduce") Reduce the value
+
+  a(href='/Flight') Search Flights
+
+  script. 
+    var count=20;
+    var change=-1;
+    function toReduce(){
+      count=count+change;
+      change--;
+      document.getElementById("reduce").innerHTML= `Count ${count} with Change ${change}`
+    } 
+  a(href='/Flight') Click here to search for Flights

@@ -1,0 +1,49 @@
+extends layout
+
+block content
+  h1=title 
+  p Welcome to #{title}
+  p Poorna Chandan Reddy Vavilala is working on pug templates.
+
+  
+block content  
+  h1= "Search Results - Flight"
+  - 
+    let results = [
+          {
+             "Model": "A108",
+             "cost": "123918234",
+             "capacity": 350,
+             "type":"passenger",
+             "range":1276,
+          },
+          {
+            "Model": "A132",
+             "cost": "120001200",
+             "capacity": 298,
+             "type":"passenger",
+             "range":1276,
+          },
+          {
+             "Model": "A543",
+             "cost": "25367384",
+             "capacity": 500,
+             "type": "parcel",
+             "range": 10000,
+          },                   
+      ]
+
+  div(class= "container-fluid")
+    div(class = "row")  
+      each item,index in results
+        div(class= "col-sm-2", onclick=`buy(${index})`) Flight Model: &nbsp; #{item.Model}
+        div(class= "col-sm-2", onclick=`buy(${index})`) Cost of Flight: &nbsp; #{item.cost}
+        div(class= "col-sm-2", onclick=`buy(${index})`) Capacity:  &nbsp; #{item.capacity}
+        div(class= "col-sm-2", onclick=`buy(${index})`) Type: &nbsp; #{item.type}
+        div(class= "col-sm-2", onclick=`buy(${index})`) Range: &nbsp; #{item.range}
+        div(class= "col-sm-2", onclick=`buy(${index})`) &nbsp;         
+
+  script.
+    function buy(itemNum){
+    alert(`You purchased item ${itemNum+1}`)
+    }
