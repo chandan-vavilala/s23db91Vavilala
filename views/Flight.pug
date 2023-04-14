@@ -8,8 +8,8 @@ block content
   
 block content  
   h1= "Search Results - Flight"
-  - 
-    let results = [
+  - let items = results
+    //let results = [
           {
              "Model": "A108",
              "cost": "123918234",
@@ -35,12 +35,12 @@ block content
 
   div(class= "container-fluid")
     div(class = "row")  
-      each item,index in results
+      each item,index in items
         div(class= "col-sm-2", onclick=`buy(${index})`) Flight Model: &nbsp; #{item.Model}
         div(class= "col-sm-2", onclick=`buy(${index})`) Cost of Flight: &nbsp; #{item.cost}
         div(class= "col-sm-2", onclick=`buy(${index})`) Capacity:  &nbsp; #{item.capacity}
-        div(class= "col-sm-2", onclick=`buy(${index})`) Type: &nbsp; #{item.type}
         div(class= "col-sm-2", onclick=`buy(${index})`) Range: &nbsp; #{item.range}
+        div(class= "col-sm-2", onclick=`buy(${index})`) &nbsp;
         div(class= "col-sm-2", onclick=`buy(${index})`) &nbsp;         
 
   script.
