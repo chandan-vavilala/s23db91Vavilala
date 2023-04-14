@@ -15,9 +15,26 @@ exports.flight_detail = function(req, res) {
 res.send('NOT IMPLEMENTED: Flight detail: ' + req.params.id);
 };
 // Handle Flight create on POST.
-exports.flight_create_post = function(req, res) {
-res.send('NOT IMPLEMENTED: Flight create POST');
-};
+exports.flight_create_post = async function(req, res) {
+    console.log(req.body)
+    let document = new Flight();
+    // We are looking for a body, since POST does not have query parameters.
+    // Even though bodies can be in many different formats, we will be picky
+    // and require that it be a json object
+    // {"costume_type":"goat", "cost":12, "size":"large"}
+    document.Model = req.body.Model;
+    document.cost = req.body.cost;
+    document.capacity = req.body.capacity;
+    document.range = req.body.range;
+    try{
+    let result = await document.save();
+    res.send(result);
+    }
+    catch(err){
+    res.status(500);
+    res.send(`{"error": ${err}}`);
+    }
+    }
 // Handle Flight delete form on DELETE.
 exports.flight_delete = function(req, res) {
 res.send('NOT IMPLEMENTED: Flight delete DELETE ' + req.params.id);
