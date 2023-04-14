@@ -21,7 +21,7 @@ exports.flight_create_post = async function(req, res) {
     // We are looking for a body, since POST does not have query parameters.
     // Even though bodies can be in many different formats, we will be picky
     // and require that it be a json object
-    // {"costume_type":"goat", "cost":12, "size":"large"}
+    // {"Flight_type":"goat", "cost":12, "size":"large"}
     document.Model = req.body.Model;
     document.cost = req.body.cost;
     document.capacity = req.body.capacity;
@@ -56,3 +56,18 @@ exports.flight_view_all_Page = async function(req, res) {
     res.send(`{"error": ${err}}`);
     }
     }
+
+//READ
+// for a specific Flight.
+exports.Flight_detail = async function(req, res) {
+    console.log("detail" + req.params.id)
+    try {
+    result = await Flight.findById( req.params.id)
+    res.send(result)
+    } catch (error) {
+    res.status(500)
+    res.send(`{"error": document for id ${req.params.id} not found`);
+    }
+    };
+    
+    
