@@ -70,4 +70,25 @@ exports.Flight_detail = async function(req, res) {
     }
     };
     
+    // Handle Flight update form on PUT.
+    exports.Flight_update_put = async function(req, res) {
+        console.log(`update on id ${req.params.id} with body
+        ${JSON.stringify(req.body)}`)
+        try {
+        let toUpdate = await Flight.findById( req.params.id)
+        // Do updates of properties
+        if(req.body.Model)
+        toUpdate.Model = req.body.Model;
+        if(req.body.cost) toUpdate.cost = req.body.cost;
+        if(req.body.capacity) toUpdate.capacity = req.body.capacity;
+        if(req.body.range) toUpdate.range = req.body.range;
+        let result = await toUpdate.save();
+        console.log("Sucess " + result)
+        res.send(result)
+        } catch (err) {
+        res.status(500)
+        res.send(`{"error": ${err}: Update for id ${req.params.id}
+        failed`);
+        }
+        };
     
