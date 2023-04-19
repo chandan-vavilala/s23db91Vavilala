@@ -7,23 +7,23 @@ block content
     - let flightcapacity = toShow.capacity
     - let flightrange = toShow.range
     div.row(class='mb-2')
-    div.mr-1 ID is
-    div #{flightid}
+        div.mr-1 ID is
+        div #{flightid}
     - let actionid = "/resource/flight/" + flightid
     form(id='flightForm', action= actionid, method="PUT")
-    div.form-group
-    label.flightAttr(for='Model') Flight Model
-    input#Model(type='text' name='Model', value=Model )
-    div.form-group
-    label.flightAttr(for='cost') Flight Cost
-    input#cost(type='number' name='cost', value= flightcost )
-    div.form-group
-    label.flightAttr(for='capacity') Flight Capacity
-    input#capacity(type='text' name='capacity', value= flightcapacity )
-    div.form-group
-    label.flightAttr(for='range') Flight Range
-    input#range(type='text' name='range', value= flightrange )
-    input(type="submit")
+     div.form-group
+      label.flightAttr(for='Model') Flight Model
+      input#Model(type='text' name='Model', value=Model )
+     div.form-group
+      label.flightAttr(for='cost') Flight Cost
+      input#cost(type='number' name='cost', value= flightcost )
+     div.form-group
+      label.flightAttr(for='capacity') Flight Capacity
+      input#capacity(type='text' name='capacity', value= flightcapacity )
+     div.form-group
+      label.flightAttr(for='range') Flight Range
+      input#range(type='text' name='range', value= flightrange )
+     input(type="submit")
     script.
         document.forms['flightForm'].addEventListener('submit', (event) => {
         event.preventDefault();
@@ -39,5 +39,4 @@ block content
         }).catch((error) => {
         // TODO handle error
         alert("Update failed " + error )
-        });
         });
