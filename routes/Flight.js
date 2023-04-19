@@ -11,4 +11,8 @@ router.get('/detail', flight_controlers.flight_view_one_Page);
 /* GET create costume page */
 router.get('/create', flight_controlers.flight_create_Page);
 
+/* GET create update page */
+router.get('/update', flight_controlers.flight_update_Page);
+
+
 module.exports = router;
