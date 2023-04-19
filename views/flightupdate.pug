@@ -10,7 +10,7 @@ block content
         div.mr-1 ID is
         div #{flightid}
     - let actionid = "/resource/flight/" + flightid
-    form(id='flightForm', action= actionid, method="PUT")
+    form(id='flightForm', action = actionid, method="PUT")
      div.form-group
       label.flightAttr(for='Model') Flight Model
       input#Model(type='text' name='Model', value=Model )
@@ -29,7 +29,7 @@ block content
         event.preventDefault();
         // TODO do something here to show user that form is being submitted
         fetch(event.target.action, {
-        method: 'PUT',
+        method:'PUT',
         body: new URLSearchParams(new FormData(event.target)) // event.target is the form
         }).then((resp) => {
         return resp.json(); // or resp.text() or whatever the server sends
@@ -38,5 +38,6 @@ block content
         // TODO handle body
         }).catch((error) => {
         // TODO handle error
-        alert("Update failed " + error )
+        alert("Update failed" + error )
+        });
         });
