@@ -39,7 +39,7 @@ async function recreateDB(){
     ).catch(err=>{
     console.error(err)})
   }
-  let reseed = true;
+  let reseed = false;
   if (reseed) { recreateDB();}
   
 
@@ -62,6 +62,7 @@ app.use('/Board',BoardRouter);
 app.use('/Selector',SelectorRouter);
 app.use('/Flight',Flight);
 app.use('/resource',ResourceRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
