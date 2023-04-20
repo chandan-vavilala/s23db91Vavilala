@@ -2,24 +2,27 @@ extends layout
 
 block content
     h1= title
-    - let flightid = toShow.id
-    - let flightModel = toShow.Model
-    - let flightcost = toShow.cost
-    - let flightcapacity = toShow.capacity
-    - let flightrange = toShow.range
-    div
-    div.row
-    div(class='flightAttr mr-3') Flight ID is:
-    div #{flightid}
-    div.row
-    div(class='flightAttr mr-3') Flight Model is:
-    div #{flightModel}
-    div.row
-    div(class='flightAttr mr-3') Flight Cost is:
-    div #{flightcost}
-    div.row
-    div(class='flightAttr mr-3') Flight Capacity is:
-    div #{flightcapacity}
-    div.row
-    div(class='flightAttr mr-3') Flight Range is:
-    div #{flightrange}
+    if (toShow == null)
+      h2 Instance Not Found
+    else
+        - let flightid = toShow.id
+        - let flightModel = toShow.Model
+        - let flightcost = toShow.cost
+        - let flightcapacity = toShow.capacity
+        - let flightrange = toShow.range
+        div
+            div.row
+             div(class='flightAttr mr-3') Flight ID is:
+             div #{flightid}
+            div.row
+             div(class='flightAttr mr-3') Flight Model is:
+             div #{flightModel}
+            div.row
+             div(class='flightAttr mr-3') Flight Cost is:
+             div #{flightcost}
+            div.row
+             div(class='flightAttr mr-3') Flight Capacity is:
+             div #{flightcapacity}
+            div.row
+             div(class='flightAttr mr-3') Flight Range is:
+             div #{flightrange}

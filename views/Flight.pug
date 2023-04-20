@@ -40,7 +40,21 @@ block content
         div(class= "col-sm-2", onclick=`buy(${index})`) &nbsp;
         div(class= "col-sm-2", onclick=`buy(${index})`) &nbsp;         
 
+  div 
+    button(type="button" class="btn btn-success" onclick="/Flight") Click here to search for Flights
+    button(type="button" class="btn btn-success" onclick="") Create 
+    button(type="button" class="btn btn-danger" onclick="") Delete
+    button(type="button" class="btn btn-primary" onclick="") Detail 
+    button(type="button" class="btn btn-warning" onclick="") Update
+
+ 
+  
+
+
   script.
     function buy(itemNum){
     alert(`You purchased item ${itemNum+1}`)
     }
+
+
+

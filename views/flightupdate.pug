@@ -1,43 +1,46 @@
 extends layout
 block content
     h1= title
-    - let flightid = toShow._id
-    - let Model = toShow.Model
-    - let flightcost = toShow.cost
-    - let flightcapacity = toShow.capacity
-    - let flightrange = toShow.range
-    div.row(class='mb-2')
-        div.mr-1 ID is
-        div #{flightid}
-    - let actionid = "/resource/flight/" + flightid
-    form(id='flightForm', action = actionid, method="PUT")
-     div.form-group
-      label.flightAttr(for='Model') Flight Model
-      input#Model(type='text' name='Model', value=Model )
-     div.form-group
-      label.flightAttr(for='cost') Flight Cost
-      input#cost(type='number' name='cost', value= flightcost )
-     div.form-group
-      label.flightAttr(for='capacity') Flight Capacity
-      input#capacity(type='text' name='capacity', value= flightcapacity )
-     div.form-group
-      label.flightAttr(for='range') Flight Range
-      input#range(type='text' name='range', value= flightrange )
-     input(type="submit")
-    script.
-        document.forms['flightForm'].addEventListener('submit', (event) => {
-        event.preventDefault();
-        // TODO do something here to show user that form is being submitted
-        fetch(event.target.action, {
-        method:'PUT',
-        body: new URLSearchParams(new FormData(event.target)) // event.target is the form
-        }).then((resp) => {
-        return resp.json(); // or resp.text() or whatever the server sends
-        }).then((body) => {
-        alert("Update succeded")
-        // TODO handle body
-        }).catch((error) => {
-        // TODO handle error
-        alert("Update failed" + error )
-        });
-        });
+    if (toShow == null)
+     h2 No instance to update
+    else
+        - let flightid = toShow.id
+        - let Model = toShow.Model
+        - let flightcost = toShow.cost
+        - let flightcapacity = toShow.capacity
+        - let flightrange = toShow.range
+        div.row(class='mb-2')
+            div.mr-1 ID is
+            div #{flightid}
+        - let actionid = "/resource/flight/" + flightid
+        form(id='flightForm', action = actionid, method="PUT")
+            div.form-group
+                label.flightAttr(for='Model') Flight Model
+                input#Model(type='text' name='Model', value=Model )
+            div.form-group
+                label.flightAttr(for='cost') Flight Cost
+                input#cost(type='number' name='cost', value= flightcost )
+            div.form-group
+                label.flightAttr(for='capacity') Flight Capacity
+                input#capacity(type='text' name='capacity', value= flightcapacity )
+            div.form-group
+                label.flightAttr(for='range') Flight Range
+                input#range(type='text' name='range', value= flightrange )
+            input(type="submit")
+        script.
+            document.forms['flightForm'].addEventListener('submit', (event) => {
+                event.preventDefault();
+                // TODO do something here to show user that form is being submitted
+                fetch(event.target.action, {
+                    method:'PUT',
+                    body: new URLSearchParams(new FormData(event.target)) // event.target is the form
+                }).then((resp) => {
+                    return resp.json(); // or resp.text() or whatever the server sends
+                }).then((body) => {
+                    alert("Update succeded")
+                // TODO handle body
+                }).catch((error) => {
+                // TODO handle error
+                    alert("Update failed" + error )
+                });
+            });
