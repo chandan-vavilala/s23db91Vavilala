@@ -30,21 +30,12 @@ block content
           },                   
       ]
 
-  div(class= "container-fluid")
-    div(class = "row")  
-      each item,index in items
-        div(class= "col-sm-2", onclick=`buy(${index})`) Flight Model: &nbsp; #{item.Model}
-        div(class= "col-sm-2", onclick=`buy(${index})`) Cost of Flight: &nbsp; #{item.cost}
-        div(class= "col-sm-2", onclick=`buy(${index})`) Capacity:  &nbsp; #{item.capacity}
-        div(class= "col-sm-2", onclick=`buy(${index})`) Range: &nbsp; #{item.range}
-        div(class= "col-sm-2", onclick=`buy(${index})`) &nbsp;
-        div(class= "col-sm-2", onclick=`buy(${index})`) &nbsp;         
   
   div(class="container-fluid")
     div(class="row m-1")
      each item in items
       - let destination = `dispatch(\"/flight/update?id=${item._id}\")`
-      div(class="row-sm-2", class="m-1") Flight #{item.Model} Costs around   #{item.cost} $ with capacity of #{item.capacity} and  range of #{item.range}
+      div(class="row-sm-2", class="m-1") Flight #{item.Model} Costs around   #{item.cost} $ with capacity of #{item.capacity} and  range of #{item.range}  . 
        button.btn( class="btn-primary ml-1", onclick = destination) Update
 
  
