@@ -39,13 +39,13 @@ block content
         div(class= "col-sm-2", onclick=`buy(${index})`) Range: &nbsp; #{item.range}
         div(class= "col-sm-2", onclick=`buy(${index})`) &nbsp;
         div(class= "col-sm-2", onclick=`buy(${index})`) &nbsp;         
-
-  div 
-    button(type="button" class="btn btn-success" onclick="/Flight") Click here to search for Flights
-    button(type="button" class="btn btn-success" onclick="") Create 
-    button(type="button" class="btn btn-danger" onclick="") Delete
-    button(type="button" class="btn btn-primary" onclick="") Detail 
-    button(type="button" class="btn btn-warning" onclick="") Update
+  
+  div(class="container-fluid")
+    div(class="row m-1")
+     each item in items
+      - let destination = `dispatch(\"/flight/update?id=${item._id}\")`
+      div(class="row-sm-2", class="m-1") Flight #{item.Model} Costs around   #{item.cost} $ with capacity of #{item.capacity} and  range of #{item.range}
+       button.btn( class="btn-primary ml-1", onclick = destination) Update
 
  
   
@@ -55,6 +55,11 @@ block content
     function buy(itemNum){
     alert(`You purchased item ${itemNum+1}`)
     }
+
+    function dispatch(path){
+      window.location.href=path
+        }
+    
 
 
 
