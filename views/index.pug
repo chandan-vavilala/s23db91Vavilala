@@ -1,24 +1,11 @@
 extends layout
-
 block content
-  h1= title
-  p Welcome to #{title}
-  p Poorna Chandan Reddy Vavilala is working on pug templates.
-
-  button(type="button" class="btn btn-secondary" onclick="toReduce()") PressMe
-   
- 
-  div(id="reduce") Reduce the value
-
-  a(href='/Flight') Search Flights
-
-  script. 
-    var count=20;
-    var change=-1;
-    function toReduce(){
-      count=count+change;
-      change--;
-      document.getElementById("reduce").innerHTML= `Count ${count} with Change ${change}`
-    } 
-  button(type="button" class="btn btn-success" onclick="/Flight") Click here to search for Flights
- 
+  if (!user)
+   a(href="/login") Login
+   br
+   a(href="/register") Register
+  if (user)
+   p You are currently logged in as #{user.username}
+   a(href="/flight") Take me to Flight
+   br
+   a(href="/logout") Logout
