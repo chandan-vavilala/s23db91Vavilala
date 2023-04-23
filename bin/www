@@ -7,7 +7,6 @@
 var app = require('../app');
 var debug = require('debug')('s23db91vavilala:server');
 var http = require('http');
-var createError = require('http-errors');
 
 /**
  * Get port from environment and store in Express.
