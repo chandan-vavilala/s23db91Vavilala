@@ -10,6 +10,8 @@ block content
         - let flightcapacity = toShow.capacity
         - let flightrange = toShow.range
         - let actionid = "/resource/flight/" + flightid
+
+        
             script let actionid = "#{actionid}"
             div
             div.row
@@ -27,27 +29,33 @@ block content
             div.row
             div(class='flightAttr mr-3') Flight Range is:
             div #{flightrange}
+
+
             button(class="btn btn-danger m-2" onclick="deleteOnid()") Delete
             button(class="btn btn-secondary m-2" onclick="cancel()") Cancel
-            script.
-                function cancel() {
-                // Go back to the home page for the flight collection
-                window.location.href='/flight'
-                }
+
+
+
+
+
             script.
                 function deleteOnid() {
-                console.log("starting delete")
-                // delete first
-                fetch(actionid, {
-                method: 'DELETE' // Don't need a body for the delete
-                }).then((resp) => {
-                return resp.json(); // or resp.text() or whatever the server sends
-                }).then((body) => {
-                alert("Delete succeded")
-                window.location.href='/flight'
-                // TODO handle body
-                }).catch((error) => {
-                // TODO handle error
-                alert("Delete failed " + error )
-                });
-                }
+                    console.log("starting delete")
+                    // delete first
+                    fetch(actionid, {
+                    method: 'DELETE' // Don't need a body for the delete
+                    }).then((resp) => {
+                    return resp.json(); // or resp.text() or whatever the server sends
+                    }).then((body) => {
+                    alert("Delete succeded")
+                    window.location.href='/flight'
+                    // TODO handle body
+                    }).catch((error) => {
+                    // TODO handle error
+                    alert("Delete failed " + error )
+                    });
+                    }
+                function cancel() {
+                    // Go back to the home page for the flight collection
+                    window.location.href='/flight'
+                    }

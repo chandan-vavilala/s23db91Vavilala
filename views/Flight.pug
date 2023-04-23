@@ -6,8 +6,9 @@ block content
   p Poorna Chandan Reddy Vavilala is working on pug templates.
 
   
-block content  
-  h1= "Search Results - Flight"
+block content 
+  - let create_destination = `dispatch(\"/flight/create\")`
+  h1= "Search Results - Flight |||"
   - let items = results
     //let results = [
           {
@@ -33,14 +34,21 @@ block content
   
   div(class="container-fluid")
     div(class="row m-1")
+     button.btn( class="btn-success ml-1", onclick = create_destination) CREATE
+     hr
      each item in items
-      - let destination = `dispatch(\"/flight/update?id=${item._id}\")`
+      - let update_destination = `dispatch(\"/flight/update?id=${item._id}\")`
+      - let detail_destination = `dispatch(\"/flight/detail?id=${item._id}\")`
+      - let delete_destination = `dispatch(\"/flight/delete?id=${item._id}\")`
       div(class="row-sm-2", class="m-1") Flight #{item.Model} Costs around   #{item.cost} $ with capacity of #{item.capacity} and  range of #{item.range}  . 
-       button.btn( class="btn-primary ml-1", onclick = destination) Update
-
+       button.btn( class="btn-warning ml-1", onclick = update_destination) Update  
+       space  
+       button.btn( class="btn-primary ml-1", onclick = detail_destination) Details
+       space  
+       button.btn( class="btn-danger ml-1", onclick = delete_destination) Delete
+       hr
  
   
-
 
   script.
     function buy(itemNum){
@@ -50,7 +58,3 @@ block content
     function dispatch(path){
       window.location.href=path
         }
-    
-
-
-
