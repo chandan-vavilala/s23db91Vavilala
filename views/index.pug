@@ -11,8 +11,9 @@ block content
       br
 
   if (user)
-   p You are currently logged in as #{user.username}
    div(class="container")
+    b You are currently logged in as #{user.username}
+    hr
     div(class="row")
       - let flight_destination = `dispatch(\"/flight\")`
       button.btn( class="btn-warning ml-1", onclick = flight_destination) Take me to Flights
