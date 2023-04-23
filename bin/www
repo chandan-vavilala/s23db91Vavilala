@@ -8,6 +8,7 @@ var app = require('../app');
 var debug = require('debug')('s23db91vavilala:server');
 var http = require('http');
 
+
 /**
  * Get port from environment and store in Express.
  */
@@ -53,7 +54,7 @@ function normalizePort(val) {
  * Event listener for HTTP server "error" event.
  */
 
-function onError(error) {
+//function onError(error) {
   if (error.syscall !== 'listen') {
     throw error;
   }
