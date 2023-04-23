@@ -7,4 +7,4 @@ res.write(' "verbs":["GET","PUT", "DELETE"] ');
 res.write('}');
 res.write(']')
 res.send();
-};s
+};
