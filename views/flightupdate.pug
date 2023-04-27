@@ -1,6 +1,7 @@
 extends layout
 block content
     h1= title
+    hr
     if (toShow == null)
      h2 No instance to update
     else
@@ -9,9 +10,10 @@ block content
         - let flightcost = toShow.cost
         - let flightcapacity = toShow.capacity
         - let flightrange = toShow.range
-        div.row(class='mb-2')
-            div.mr-1 ID is
+        div(class="flightAttr-1")
+            div ID is
             div #{flightid}
+        hr    
         - let actionid = "/resource/flight/" + flightid
         form(id='flightForm', action = actionid, method="PUT")
             div.form-group

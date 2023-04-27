@@ -1,8 +1,11 @@
 extends layout
 
 block content
+ div(class="container")
     h1= title
-    form(id='FlightForm', action="/resource/Flight", method="POST")
+    hr
+    link(rel="stylesheet", href="/css/style.css")
+    form(id='FlightForm', action="/resource/Flight", method="POST", style="max-width: 500px; margin: 0 auto;")
       div.form-group
          label.flightAttr(for='Model') Flight Model
          input#Model(type='text', name='Model')
@@ -33,3 +36,4 @@ block content
          alert("Save failed " + error )
          });
          })
+         

@@ -8,6 +8,79 @@ a {
 }
 .flightAttr {
   background-color: aquamarine;
-  width: 120px;
+  width: 140px;
+  border-radius:12px;
+  padding:12px 12px 12px 12px;
+  margin:2px;
+  text-align:center;
   }
+
+.flightAttr-1 {
+    background-color: rgb(164, 151, 8);
+    width: AUTO;
+    border-radius:12px;
+    padding:12px 12px 12px 12px;
+    margin:2px;
+    text-align:center;
+      
+    }
+
+.ans{
+   width:120px;
+   padding : 12px 12px 12px 12px;
+   text-indent: 15px;
+}
   
+/* Apply styles to all form elements */
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto ;
+  max-width: 500px;
+}
+
+/* Apply styles to form labels */
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  padding: 12px 12px 12px 12px;
+  border-radius:10px;
+  width:auto;
+}
+
+/* Apply styles to form inputs */
+input {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* Apply styles to submit button */
+input[type="submit"] {
+  background-color: #007bff;
+  border-color: #007bff;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover,
+input[type="submit"]:focus {
+  background-color: #0069d9;
+  border-color: #0062cc;
+  color: #fff;
+}
+
+/* Apply styles to form error messages */
+.error {
+  color: red;
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+}

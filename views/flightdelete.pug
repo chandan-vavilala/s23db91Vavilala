@@ -1,6 +1,7 @@
 extends layout
 block content
     h1= title
+    hr
     if (toShow == null)
      h2 No instance to delete
     else
@@ -13,22 +14,22 @@ block content
 
         
             script let actionid = "#{actionid}"
-            div
+            div(class="ans")
             div.row
             div(class='flightAttr mr-3') Flight ID is:
-            div #{flightid}
+            div(class="ans") #{flightid}
             div.row
             div(class='flightAttr mr-3') Flight Model is:
-            div #{flightModel}
+            div(class="ans") #{flightModel}
             div.row
             div(class='flightAttr mr-3') Flight Cost is:
-            div #{flightcost}
+            div(class="ans") #{flightcost}
             div.row
             div(class='flightAttr mr-3') Flight Capacity is:
-            div #{flightcapacity}
+            div(class="ans") #{flightcapacity}
             div.row
             div(class='flightAttr mr-3') Flight Range is:
-            div #{flightrange}
+            div(class="ans") #{flightrange}
 
 
             button(class="btn btn-danger m-2" onclick="deleteOnid()") Delete
