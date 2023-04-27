@@ -6,6 +6,7 @@ var passport = require('passport');
 var createError = require('http-errors');
 var LocalStrategy = require('passport-local').Strategy;
 
+
 passport.use(new LocalStrategy(
   function (username, password, done) {
     Account.findOne({ username: username })
